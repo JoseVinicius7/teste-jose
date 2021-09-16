@@ -3,7 +3,7 @@ package br.com.jose.teste.controller;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +20,8 @@ public class EmpresaController {
 		this.empresaService = empresaService;
 	}
 
-	@GetMapping("{cnpj}")
-	public Empresa obterEndereco(@PathVariable @Valid String cnpj) {
+	@GetMapping
+	public Empresa obterEndereco(@RequestParam @Valid String cnpj) {
 		return empresaService.obterEndereco(cnpj);
 
 	}
